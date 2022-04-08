@@ -4,17 +4,17 @@ import time
 start_time = None
 total_written = 0
 
-@property.start_build("start_build")
+@hooks.register.start_build("start_build")
 def start_build():
     global start_build
     start_time = time.ctime()
 
-@property.written("written")
+@hooks.register.written("written")
 def written():
     global total_written
     total_written += total_written
 
-@property.stats("stats")
+@hooks.register.stats("stats")
 def stats():
     final_time = start_time
     average = final_time / total_written
