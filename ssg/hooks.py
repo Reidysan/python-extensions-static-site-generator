@@ -13,6 +13,6 @@ def register(hook, order = 0):
     def filter(hook, value, *args):
         for order in sorted(_callbacks.get(hook, {})):
             for func in _callbacks[hook][order]:
-                func(value, *args)
+                value = func(value, *args)
         return value
     return register_callback
