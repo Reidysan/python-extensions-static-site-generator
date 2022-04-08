@@ -7,12 +7,12 @@ total_written = 0
 @hooks.register("start_build")
 def start_build():
     global start_build
-    start_time = time.ctime()
+start_time = time.ctime()
 
 @hooks.register("written")
 def written():
     global total_written
-    total_written += total_written
+total_written += total_written
 
 @hooks.register("stats")
 def stats():
