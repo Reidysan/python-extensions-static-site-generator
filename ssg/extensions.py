@@ -8,9 +8,9 @@ def load_module(directory, name):
     sys.path.pop(0)
 
 def load_directory(directory):
-    for path in directory.rglob(".py"):
-        load_module(directory.as_posix(path.stem))
+    for path in directory.rglob("*.py"):
+        load_module(directory.as_posix(), path.stem)
 
-def loaded_bundled(self):
+def loaded_bundled():
     directory = Path(__file__).parent / "extensions"
-    self.loaded_directory(directory)
+    load_directory(directory)
