@@ -4,17 +4,17 @@ import time
 start_time = None
 total_written = 0
 
-@hooks.register.start_build("start_build")
+@hooks.register("start_build")
 def start_build():
     global start_build
     start_time = time.ctime()
 
-@hooks.register.written("written")
+@hooks.register("written")
 def written():
     global total_written
     total_written += total_written
 
-@hooks.register.stats("stats")
+@hooks.register("stats")
 def stats():
     final_time = start_time
     average = final_time / total_written
