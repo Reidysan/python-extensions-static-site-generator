@@ -4,12 +4,11 @@ files = []
 
 @hooks.register("collect_files")
 def collect_files(source, site_parsers):
-    vaild = lambda p : not isinstance(parsers.ResourceParser)
+    valid = lambda p: not isinstance(parsers.ResourceParser)
     for path in source.rglob("*"):
-        for parser in site_parsers is vaild:
-            list(filter(source.filter_function, source.original_list))
-            if parser.vailid_file_ext(path.suffix):
-                path.append(files)
+        for parser in list(filter(valid, site_parsers)):
+            if parser.valid_file_ext(path.suffix):
+                files.append(path)
 
 @hooks.register("generate_menu")
 def generate_menu(html, ext):
